@@ -1,16 +1,26 @@
-// loadBootstrap.js
+function loadBootstrap() {
+    return new Promise((resolve, reject) => {
+        var linkElement = document.createElement("link");
+        linkElement.rel = "stylesheet";
+        linkElement.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";
+        linkElement.integrity = "sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN";
+        linkElement.crossOrigin = "anonymous";
+        document.head.appendChild(linkElement);
 
-// 創建一個 script 元素
-var bootstrapScript = document.createElement('script');
+        var bootstrapScript = document.createElement('script');
+        bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
+        bootstrapScript.integrity = 'sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL';
+        bootstrapScript.crossOrigin = 'anonymous';
+        document.head.appendChild(bootstrapScript);
 
-// 設置 script 的 src 屬性為 Bootstrap 的 CDN 連結
-bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
+        bootstrapScript.onload = resolve;
+        bootstrapScript.onerror = reject;
+    });
+}
 
-// 設置 script 的 integrity 屬性（可選，提供額外的安全性）
-bootstrapScript.integrity = 'sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL';
-
-// 設置 script 的 crossorigin 屬性
-bootstrapScript.crossOrigin = 'anonymous';
-
-// 將 script 元素附加到 HTML 的 head 元素中
-document.head.appendChild(bootstrapScript);
+// 使用 Promise 來確保 Bootstrap 載入完成
+loadBootstrap().then(() => {
+    // 在這裡執行需要 Bootstrap 功能的代碼
+}).catch((error) => {
+    console.error('無法載入 Bootstrap:', error);
+});
