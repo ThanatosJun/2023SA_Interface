@@ -22,3 +22,8 @@ body {
     left: auto;
     position: absolute;
 }
+
+.required::before {
+    content: "*";
+    color: red;
+}
