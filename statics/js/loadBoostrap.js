@@ -1,5 +1,6 @@
 function loadBootstrap() {
     return new Promise((resolve, reject) => {
+        // bootstraps CDN CSS
         var linkElement = document.createElement("link");
         linkElement.rel = "stylesheet";
         linkElement.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";
@@ -7,7 +8,8 @@ function loadBootstrap() {
         linkElement.crossOrigin = "anonymous";
         document.head.appendChild(linkElement);
 
-        var bootstrapScript = document.createElement('script');
+        // bootstrap CDN js
+        var bootstrapScript = document.createElement("script");
         bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
         bootstrapScript.integrity = 'sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL';
         bootstrapScript.crossOrigin = 'anonymous';
@@ -15,6 +17,16 @@ function loadBootstrap() {
 
         bootstrapScript.onload = resolve;
         bootstrapScript.onerror = reject;
+
+        // inconfy CDN js
+        var iconifyScript = document.createElement("script");
+        iconifyScript.src = "https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js";
+        iconifyScript.integrity = "sha384-ZBvlAMcOinSpqbKp+h0PpJxrDWCO8veRjvEhIc+Wg2Um8ZUKrbyNtJChA7FhNtCF";
+        iconifyScript.crossOrigin = "anonymous";
+        document.head.appendChild(iconifyScript);
+
+        iconifyScript.onload = resolve;
+        iconifyScript.onerror = reject;
     });
 }
 
