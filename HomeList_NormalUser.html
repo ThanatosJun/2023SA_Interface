@@ -15,9 +15,9 @@
         <div class="row">
             <div class="col-1">
                 <div class="col-1">
-                    <a href="">
-                        <iconify-icon icon="mdi:bell" style="color:#9747ff;" width="40" height="40"></iconify-icon>
-                    </a>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AnnounceBoard">
+                        <iconify-icon icon="mdi:bell"  style="color:#9747ff;" width="40" height="40"></iconify-icon>
+                    </button>
                 </div>
             </div>
             <div class="col-10 row">
@@ -93,8 +93,8 @@
                     <div style="display: flex; gap: 10px; align-items: center;">
                         <button type="button" class="btn"><iconify-icon icon="ph:heart-bold" style="color: #9747ff;" width="50" height="50"></iconify-icon></button>
                         <button type="button" class="btn"><iconify-icon icon="icon-park-outline:people-bottom" style="color: #FFC700;" width="50" height="50"></iconify-icon></button>
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#MessageBoard" ><iconify-icon icon="ant-design:message-twotone" style="color:#699BF7;" width="50px" height="50"></iconify-icon></button>
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target=""><iconify-icon icon="zondicons:exclamation-solid" style="color:#F24E1E;" width="50" height="50"></iconify-icon></button>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#CommentBoard" ><iconify-icon icon="ant-design:message-twotone" style="color:#699BF7;" width="50px" height="50"></iconify-icon></button>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ReportBoard"><iconify-icon icon="zondicons:exclamation-solid" style="color:#F24E1E;" width="50" height="50"></iconify-icon></button>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="width: 50; height: 50;background-color: aliceblue;"></button>
                     </div>
                 </div>
@@ -153,8 +153,8 @@
         </div>
     </div>
 
-    <!-- MessageBoard -->
-    <div class="modal fade modal-dialog modal-lg" id="MessageBoard" tabindex="-1" aria-labelledby="ActivityDetailModalLabel" aria-hidden="true">
+    <!-- CommentBoard -->
+    <div class="modal fade modal-dialog modal-lg" id="CommentBoard" tabindex="-1" aria-labelledby="ActivityDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" style="max-height: 700px;">
                 <div class="modal-header" style="display: flex;justify-content:space-between ;align-items: center; background-color: black;">
@@ -165,16 +165,87 @@
                     </div>
                 </div>
                 <div class="modal-body" style="overflow-y: scroll; word-wrap: break-word;max-height:fit-content;">
-                    <label for="ReportReason">檢舉原因：</label>
-                    <input id="ReportReason" type="text">
+                    <div class="container row" style="display: flex;">
+                        <div id="allComment" class="row col-12">
+                            <strong>北風一笑：</strong>
+                            <span>00:00</span>
+                            <span class="mb-2">這個期末專題要死人啦！</span>
+                            <strong>南柯一夢：</strong>
+                            <span>00:00</span>
+                            <span class="mb-2">這個期末專題要死人啦！</span>
+                            <strong>西金一下：</strong>
+                            <span>00:00</span>
+                            <span class="mb-2">這個期末專題要死人啦！</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">確認</button>
+                <div class="modal-footer col-12">
+                    <textarea name="YourComment" id="YourComment" cols="30" rows="1" placeholder="請輸入訊息......" style="width: 80%;"></textarea>
+                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">送出</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- ReportBoard -->
+    <div class="modal fade modal-dialog modal-lg" id="ReportBoard" tabindex="-1" aria-labelledby="ActivityDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="max-height: 700px;">
+                <div class="modal-header" style="display: flex;justify-content:space-between ;align-items: center; background-color: black;">
+                    <button id="AttenButton" class="btn btn-primary btn-lg" style="background-color: rgb(0, 180, 0);">參加</button>
+                    <span style="align-items: center; color: #FFC700;font-size: xx-large;">檢舉內容</span>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="width: 50; height: 50; background-color: aliceblue;"></button>
+                    </div>
+                </div>
+                <div class="modal-body d-flex flex-column justify-content-center align-items-center" style="overflow-y: scroll; max-height: fit-content;">
+                    <label for="ReportReason">檢舉原因：</label>
+                    <textarea name="ReportReason" id="ReportReason" cols="30" rows="10" placeholder="請輸入檢舉內容......"></textarea>
+
+                </div>                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Announce Board -->
+    <div class="modal fade modal-dialog modal-lg" id="AnnounceBoard" tabindex="-1" aria-labelledby="ActivityDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="max-height: 700px;">
+                <div class="modal-header" style="display: flex;justify-content:space-between ;align-items: center; background-color: black;">
+                    <span style="align-items: center; color: #FFC700;font-size: xx-large;">通知欄</span>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="width: 50; height: 50; background-color: aliceblue;"></button>
+                    </div>
+                </div>
+                <div class="modal-body" style="overflow-y: scroll; max-height: fit-content;">
+                    <div class="card" style="width: 100%; color: #00656B;">
+                        <button id="Notification_ID" class="btn card-body">
+                            <h5 id="NotificationTitle" class="card-title">全校活動大會</h5>
+                            <hr class="Line6" style="border: 3px #043437 solid;">
+                            <p id="NotificationContent" class="text-muted">
+                                這是一個帶有淡灰色的段落文字。這是一個帶有淡灰色的段落文字。
+                            </p>
+                        </button>
+                        <button class="btn card-body">
+                            <h5 class="card-title">全校活動大會</h5>
+                            <hr class="Line6" style="border: 3px #043437 solid;">
+                        </button>
+                        <button class="btn card-body">
+                            <h5 class="card-title">全校活動大會</h5>
+                            <hr class="Line6" style="border: 3px #043437 solid;">
+                        </button>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
 <script>
+
+    // ActivityList Activity data
+
     // function updateTable(data) {
     //     $("#table > tbody").empty();
     //     var table_html = '';
@@ -189,6 +260,31 @@
     //     })
     //     $("#table > tbody").append(table_html);
     // }
+
+    // MessageBoard Comment  Memeber data & Comment data
+
+    // function updateMessageBoard(data) {
+    //     $("#table > tbody").empty();
+    //     var table_html = '';
+    //     $.each(data, function(index, value) {
+    //          table_html += "<strong>" + value[User_ID] + "</strong>";
+    //          table_html += "<span>" + value[Time] + "</span>";
+    //          table_html += "<span class='md-2'>" + value[Content] + "</span>";
+    //     })
+    //     $("#table > tbody").append(table_html);
+    // }
+
+    // AnnounceBoard  Notification data
+
+    // function updateMessageBoard(data) {
+    //     $("#table > tbody").empty();
+    //     var table_html = '';
+    //     $.each(data, function(index, value) {
+    //          table_html += "<button class="btn card-body"><h5 class="card-title">" + value[Notification_Title] + "</h5><hr class="Line6" style="border: 3px #043437 solid;"></button>";
+    //          table_html += "<p class="text-muted">" + value[Notification_Content] + "</p";
+    //     })
+    //     $("#table > tbody").append(table_html);
+    // }     
 </script>
 </body>
 </html>
