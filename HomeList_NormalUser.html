@@ -11,38 +11,22 @@
 </head>
 <body>
     <!-- ActivityList -->
-    <div id="head" class="Tophead container-fluid p-2 align-content-center">
-        <div class="row">
-            <div class="col-1">
-                <div class="col-1">
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AnnounceBoard">
-                        <iconify-icon icon="mdi:bell"  style="color:#9747ff;" width="40" height="40"></iconify-icon>
-                    </button>
-                </div>
-            </div>
-            <div class="col-10 row">
-                <div class="col-2">
-                    <a href="Module_7.0/Friends.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: lightseagreen; border-radius: 100%;">好友</a>
-                </div>
-                <div class="col-2">
-                    <a href="Module_2.0/Account_Management.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: darkblue; border-radius: 100%;">帳號</a>
-                </div>
-                <div class="col-3">
-                    <a href="Module_3.0/Activity_Mangement.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: darkgoldenrod; border-radius: 100%;">管理活動</a>
-                </div>
-                <div class="col-2">
-                    <a href="Module_5.0/Organization_Management.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: brown; border-radius: 100%;">組織</a>
-                </div>
-                <div class="col-2">
-                    <a href="Module_6.0/Store.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: purple; border-radius: 100%;">商城</a>
-                </div>
-            </div>
-            <div class="col-1">
-                <div class="row">
-                        <span>UserName</span>
-                        <span>UserID</span>
-                </div>
-            </div>
+    <div id="head" class="Tophead d-flex flex-row align-items-center p-2">
+        <div class="col-1 d-flex justify-content-center">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AnnounceBoard">
+                <iconify-icon icon="mdi:bell"  style="color:#9747ff;" width="40" height="40"></iconify-icon>
+            </button>
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+            <div class="col-2 p-1"><a href="Module_7.0/Friends.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: lightseagreen; border-radius: 100%;">好友</a></div>
+            <div class="col-2 p-1"><a href="Module_2.0/Account_Management.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: darkblue; border-radius: 100%;">帳號</a></div>
+            <div class="col-3 p-1"><a href="Module_3.0/Activity_Mangement.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: darkgoldenrod; border-radius: 100%;">管理活動</a></div>
+            <div class="col-2 p-1"><a href="Module_5.0/Organization_Management.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: brown; border-radius: 100%;">組織</a></div>
+            <div class="col-2 p-1"><a href="Module_6.0/Store.html" class="btn btn-primary btn-lg mb-3" style="width: 100%; height: auto;background-color: purple; border-radius: 100%;">商城</a></div>
+        </div>
+        <div class="col-1 d-flex flex-column justify-content-center">
+            <span>UserName</span>
+            <span>UserID</span>
         </div>
     </div>
     <div id="activityList" class="container-fluid d-grid">
@@ -74,7 +58,7 @@
                     <td>120</td>
                     <td>無</td>
                     <td>
-                        <div class="btn-group" role="group">
+                        <div class="btn-group d-flex" role="group">
                             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ActivityDetail">詳細內容</button>
                             <button class="btn btn-primary btn-sm" style="background-color:rgb(0, 180, 0)">參加</button>
                         </div>
