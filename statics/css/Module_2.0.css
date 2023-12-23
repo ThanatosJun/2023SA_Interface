@@ -1,0 +1,13 @@
+#PersonalInformation {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#PersonalInformation label,
+#PersonalInformation span {
+    font-size: 40px; /* 調整文字大小，可以根據需要進行調整 */
+    font-weight: 700;
+}
