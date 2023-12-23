@@ -1,3 +1,9 @@
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
 body{
     background-color: #e6cd9d !important;
 }
@@ -6,7 +12,7 @@ body{
     height: 10%; 
     background: black; 
     Top: 0;
-    position: fixed;
+    position: sticky;
     color: white;
     z-index: 1;
 }

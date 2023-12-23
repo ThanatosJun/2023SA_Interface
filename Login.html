@@ -23,7 +23,7 @@
                 </div>
                 <!-- Input area -->
                 <!-- <form id="loginForm" action="HomeList_NormalUser.html" method="post"> -->
-                <form id="loginForm">
+                <form id="loginForm" action="HomeList_NormalUser.html">
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="EmailInput">Email：</label>
                         <input id="EmailInput" type="text" class="form-control" placeholder="xxxx@xxxxx.xxx" aria-label="Email" required>
@@ -62,7 +62,6 @@
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const isValidEmail = emailPattern.test(emailInput.value);
         emailValidationFeedback.style.display = isValidEmail ? "none" : "block";
-        emailInput.setCustomValidity(isValidEmail ? "" : "Invalid email format");
                 // Check wether email is fit
         if(!isValidEmail){
             // stop submit behavior /阻止表單預設的提交行為
