@@ -16,16 +16,6 @@ body{
     color: white;
     z-index: 1;
 }
-#activityList {
-    margin-top: 100px;
-    width: 100%;
-    height: auto;
-    display: grid;
-    place-items: center;
-    position:relative;
-    z-index: 0;
-}
-
 .ActivitiesInformation {
     width: auto; /* 設置適當的寬度 */
     margin: 20px; /* 設置適當的邊距 */
