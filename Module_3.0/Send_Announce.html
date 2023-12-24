@@ -19,6 +19,27 @@
             <h2 style="color: yellow;">發送活動通知</h2>
         </div>
     </div>
+    <form id="GeneralActivityForm" action="" class="p-2">
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="ActivityInput">活動發布型別：</label>
+            <select id="ActivityInput" class="form-select">
+                <option>活動1</option>
+                <option>活動2</option>
+            </select>
+        </div>
+        <div class="input-group mb-3 ">
+            <label class="input-group-text" for="ActivityNameInput">活動名稱：</label>
+            <input id="AnnounceTitle" type="text" class="form-control-p" placeholder="請輸入您的通知標題" aria-label="AnnounceTitle" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="AnnounceContentInput">通知內容：</label>
+            <textarea name="Conment" id="AnnounceContentInput" cols="100" rows="20" placeholder="活動通知內容描述" required></textarea>
+        </div>
+        <div class="col-md-12 p-0" >
+            <button id="Submit" type="submit" class="btn btn-primary btn-lg mb-3" style="width:100% ;font-size:x-large; background-color:rgba(193, 17, 209, 0.856);">確認發布</button>
+        </div>
+    </form>
 </body>
 <script>
     document.getElementById("Home").addEventListener("click", function() {
