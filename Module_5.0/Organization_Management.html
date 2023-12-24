@@ -46,21 +46,50 @@
                     <td>為學生爭取權力</td>
                     <td>
                         <div class="btn-group d-flex" role="group">
-                            <button type="button" class="btn btn-primary btn-sm">詳細訊息</button>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#OrganizationDetailModal">詳細訊息</button>
                         </div>
                     </td>
                     <td>
                         <div class="btn-group d-flex" role="group">
-                            <button id="Follow-Button" type="button" class="btn btn-primary btn-sm" style="background-color:#00b400">關注</button>
+                            <button type="button" class="Follow_Button btn btn-primary btn-sm" style="background-color:#00b400">關注</button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>    
+
+    <!-- Organization Detail -->
+    <div class="modal fade modal-dialog modal-lg" id="OrganizationDetailModal" tabindex="-1" aria-labelledby="OrganizationDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="max-height: 700px;">
+                <div class="modal-header d-flex flex-row" style="justify-content:center; background-color: black;">
+                    <div class="col-2"><button class="Follow_Button btn btn-primary btn-lg" style="background-color: rgb(0, 180, 0);">關注</button></div>
+                    <h2 class="col-10 text-center" style="color: orange;">組織詳細訊息</h2>
+                </div>
+                <div class="modal-body" style="overflow-y: scroll; word-wrap: break-word;max-height:fit-content;">
+                    <div class="ActivitiesInformation">
+                        <div class="activity-detail">
+                          <span class="detail-label">活動名稱：</span>
+                          <span id="ActivityName" class="detail-value">運動會</span>
+                        </div>
+                        <div class="activity-detail">
+                            <span class="detail-label">發布型別：</span>
+                            <span id="PublishType" class="detail-value">一般活動</span>
+                          </div>
+                        <div class="activity-detail">
+                          <span class="detail-label">活動類型：</span>
+                          <span id="ActivityType" class="detail-value">校級活動</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
-    var Follow_Button = document.getElementById("Follow-Button");
     document.getElementById("Home").addEventListener("click", function() {
         // if(authication=="一般使用者"){
 
@@ -68,40 +97,26 @@
         // else{}
         window.location.href = "/HomeList_NormalUser.html";
     });
-    Follow_Button.addEventListener("click", function(){
 
-        // Method 1 法一
-        // var computedStyle = window.getComputedStyle(Follow_Button);
-        // var backgroundColor = computedStyle.backgroundColor;
+    // 獲取所有擁有 class="Follow_Button" 的按鈕
+    var Follow_Buttons = document.querySelectorAll(".Follow_Button");
+    Follow_Buttons.forEach(function(Follow_Button) {
+        Follow_Button.addEventListener("click", function() {
+            // 獲取元素的背景顏色
+            var computedStyle = window.getComputedStyle(Follow_Button);
+            var backgroundColor = computedStyle.backgroundColor;
 
-        // console.log(backgroundColor);
-        // if (backgroundColor === "rgb(0, 180, 0)") {
-        // Follow_Button.style.backgroundColor = "#D91621";
-        // } else {
-        // Follow_Button.style.backgroundColor = "#00B400";
-        // }
-
-        // Method 2 法二
-        if(Follow_Button.style["backgroundColor"] === "rgb(0, 180, 0)"){
-            Follow_Button.style.backgroundColor = "#D91621";
-        } else{
-            Follow_Button.style.backgroundColor = "#00B400";
-        }
+            // 判斷元素的背景顏色，進行相應的操作
+            if (backgroundColor === "rgb(0, 180, 0)" || backgroundColor === "#00B400") {
+                Follow_Buttons.forEach(function(button) {
+                    button.style.backgroundColor = "#D91621";
+                });
+            } else {
+                Follow_Buttons.forEach(function(button) {
+                    button.style.backgroundColor = "#00B400";
+                });
+            }
+        });
     });
-
-    //  Method 3 法三
-    // $(document).ready(function(){
-    //     $("button").click(function(){
-    //         var currentColor = $("#Follow-Button").css("background-color");
-        
-    //         if (currentColor === "rgb(0, 180, 0)") {
-    //             // 當按鈕是綠色時，轉為紅色
-    //             $("#Follow-Button").css("background-color", "#D91621");
-    //         } else {
-    //             // 當按鈕是紅色時，轉為綠色
-    //             $("#Follow-Button").css("background-color", "#00B400");
-    //         }
-    //     });
-    // });
 </script>
 </html>

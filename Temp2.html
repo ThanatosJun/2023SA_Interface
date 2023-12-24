@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="color-change-button">Button 1</button>
+    <div class="color-change-element">Element 1</div>
+
+    <button class="color-change-button">Button 2</button>
+    <div class="color-change-element">Element 2</div>
+
+    <button class="color-change-button">Button 3</button>
+    <div class="color-change-element">Element 3</div>
+</body>
+<script>
+    // 獲取所有擁有 class="color-change-button" 的按鈕
+    var buttons = document.querySelectorAll(".color-change-button");
+
+    // 將每個按鈕都設置點擊事件
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            // 獲取相鄰的擁有 class="color-change-element" 的元素
+            var relatedElement = button.nextElementSibling;
+
+            // 判斷元素的背景顏色，進行相應的操作
+            var computedStyle = window.getComputedStyle(relatedElement);
+            var backgroundColor = computedStyle.backgroundColor;
+
+            if (backgroundColor === "rgb(0, 180, 0)" || backgroundColor === "#00B400") {
+                relatedElement.style.backgroundColor = "#D91621";
+            } else {
+                relatedElement.style.backgroundColor = "#00B400";
+            }
+        });
+    });
+    
+</script>
+</html>

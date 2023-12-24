@@ -48,3 +48,41 @@ document.head.appendChild(bootstrapScript);
         var propsSufficient = true;
         return propsSufficient;
     }
+
+// 單個顏色更改
+    // var Follow_Button = document.getElementById(#Follow_Button)
+    // Follow_Button.addEventListener("click", function(){
+
+    //     Method 1 法一
+    //     var computedStyle = window.getComputedStyle(Follow_Button);
+    //     var backgroundColor = computedStyle.backgroundColor;
+
+    //     console.log(backgroundColor);
+    //     if (backgroundColor === "rgb(0, 180, 0)") {
+    //     Follow_Button.style.backgroundColor = "#D91621";
+    //     } else {
+    //     Follow_Button.style.backgroundColor = "#00B400";
+    //     }
+
+    //     Method 2 法二
+    //     if(Follow_Button.style["backgroundColor"] === "rgb(0, 180, 0)"){
+    //         Follow_Button.style.backgroundColor = "#D91621";
+    //     } else{
+    //         Follow_Button.style.backgroundColor = "#00B400";
+    //     }
+    // });
+
+    //  Method 3 法三
+    // $(document).ready(function(){
+    //     $("button").click(function(){
+    //         var currentColor = $("#Follow-Button").css("background-color");
+        
+    //         if (currentColor === "rgb(0, 180, 0)") {
+    //             // 當按鈕是綠色時，轉為紅色
+    //             $("#Follow-Button").css("background-color", "#D91621");
+    //         } else {
+    //             // 當按鈕是紅色時，轉為綠色
+    //             $("#Follow-Button").css("background-color", "#00B400");
+    //         }
+    //     });
+    // });
