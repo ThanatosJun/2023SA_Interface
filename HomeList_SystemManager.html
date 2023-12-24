@@ -58,7 +58,7 @@
                     <td>
                         <div class="btn-group d-flex" role="group">
                             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#ActivityDetail">詳細內容</button>
-                            <button class="btn btn-primary btn-sm" style="background-color:rgb(0, 180, 0)">參加</button>
+                            <button id="Join_Button" class="btn btn-primary btn-sm" style="background-color:rgb(0, 180, 0)">參加</button>
                         </div>
                     </td>
                 </tr>
@@ -224,4 +224,14 @@
         </div>
     </div>
 </body>
+<script>
+    var Join_Button = document.getElementById("Join_Button");
+    Join_Button.addEventListener("click", function(){
+    if(Join_Button.style["backgroundColor"] === "rgb(0, 180, 0)"){
+        Join_Button.style.backgroundColor = "#D91621";
+    } else{
+        Join_Button.style.backgroundColor = "#00B400";
+    }
+    });
+</script>
 </html>
